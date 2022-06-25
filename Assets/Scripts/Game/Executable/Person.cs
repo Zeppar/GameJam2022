@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Person : Executable
 {
+    public enum PersonMode { mode1, mode2 }
+
     public float speed = 200;
     public float jumpFoucus = 500;
     public float gravity = 9.8f;
     public float obstacleDistance = 60;
 
     public Rigidbody2D rigidbody2d;
-    public Collider2D collider2d;
     public LayerMask groundLayer;
-
+    public PersonMode personMode;
+    
     public bool isOnGround = false;
 
     private void Start()
@@ -25,7 +27,6 @@ public class Person : Executable
     {
         base.Execute();
         rigidbody2d = GetComponent<Rigidbody2D>();
-        collider2d = GetComponent<Collider2D>();
     }
 
     public override void Exit()
@@ -78,7 +79,14 @@ public class Person : Executable
     {
         if (collision.gameObject.CompareTag("Countdown"))
         {
-            collision.gameObject.GetComponent<Countdown>().AddTime();
+            if (personMode == PersonMode.mode1)
+            {
+                collision.gameObject.GetComponent<Countdown>().AddTime();
+            }
+            else
+            {
+                collision.gameObject.GetComponent<Countdown>().Rotate(transform.position);
+            }
         }
     }
 
