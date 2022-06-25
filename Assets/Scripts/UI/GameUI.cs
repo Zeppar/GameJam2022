@@ -7,6 +7,7 @@ public class GameUI : MonoBehaviour
     public static GameUI instance = null;
     public CommandUI commandUI;
     public ShowMsgUI showMsgUI;
+    public Transform gameParent;
 
     private void Awake()
     {
@@ -23,6 +24,8 @@ public class GameUI : MonoBehaviour
     public void ShowGame(string name)
     {
         Debug.LogError("启动游戏 : " + name);
+        GameObject go = Instantiate(Resources.Load<GameObject>("Prefab/" + name));
+        go.transform.SetParent(gameParent, false);
     }
     
 }

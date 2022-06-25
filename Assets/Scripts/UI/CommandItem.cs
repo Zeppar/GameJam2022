@@ -35,7 +35,7 @@ public class CommandItem : MonoBehaviour
                         }
                     }
                 }
-                if (findDll)
+                if (!info.needDll || findDll )
                 {
                     GameUI.instance.ShowGame(info.exeGameId);
                 } else

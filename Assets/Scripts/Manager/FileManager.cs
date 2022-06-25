@@ -26,6 +26,7 @@ public class FileDetailInfo
     // for exe
     public string exeGameId;
     public string exeErrorText;
+    public bool needDll;
     // for html
     public string webUrl;
 }
@@ -104,6 +105,13 @@ public class FileManager : IManager
         {
             info.exeGameId = (string)detail["exeGameId"];
             info.exeErrorText = (string)detail["exeErrorText"];
+            try
+            {
+                info.needDll = (bool)detail["needDll"];
+            } catch
+            {
+                info.needDll = false;
+            }
         }
         else if (info.type == FileDetailType.HTML)
         {

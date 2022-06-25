@@ -61,6 +61,8 @@ public class Airplane : Executable
         else if (collision.gameObject.name == "End")
         {
             WinGame();
+            GameController.manager.userInfo.endingIdList.Add(EndingType.AIRCRAFT);
+            GameController.manager.GetManager<FileManager>().SetFileState("passport.txt", true);
         }
     }
 }

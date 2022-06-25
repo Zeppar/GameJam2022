@@ -16,6 +16,12 @@
                     "name": "一个隐秘的角落.html",
                     "webUrl": "https://www.bilibili.com/video/BV1uT4y1P7CX",
                     "showSelf": false
+                },
+                {
+                    "type": 1,
+                    "name": "passport.txt",
+                    "showText": "想要拥有国王一样的权限么，输入babaisme试试吧，我的朋友！",
+                    "showSelf": false
                 }
             ]
         },
@@ -26,14 +32,15 @@
                 {
                     "type": 2,
                     "name": "可爱小人.exe",
-                    "exeGameId": "0",
+                    "exeGameId": "Human",
                     "exeErrorText": ""
                 },
                 {
                     "type": 2,
                     "name": "玩飞机.exe",
-                    "exeGameId": "1",
-                    "exeErrorText": "缺少玩飞机.dll文件，无法启动"
+                    "exeGameId": "Aircraft",
+                    "exeErrorText": "缺少玩飞机.dll文件，无法启动",
+                    "needDll":  true
                 },
                 {
                     "type": 4,
