@@ -18,7 +18,7 @@ public class FileDetailInfo
     public string name;
     public bool showSelf;
     public FileDetailInfo parentInfo;
-    public int index = 0;
+    public string path;
     // for dir
     public List<FileDetailInfo> childDetailInfoList = new List<FileDetailInfo>();
     // for txt
@@ -32,6 +32,7 @@ public class FileDetailInfo
 
 public class FileManager : IManager
 {
+    public FileDetailInfo rootFileInfo = null;
     public FileDetailInfo curFileInfo = null;
 
     public FileDetailInfo GetChild(List<FileDetailInfo> list, string childName)
@@ -54,21 +55,43 @@ public class FileManager : IManager
     {
         var text = Resources.Load<TextAsset>("fileData").text;
         JsonData data = JsonMapper.ToObject(text);
-        curFileInfo = GetFileDetailInfo(data);
+        curFileInfo = GetFileDetailInfo(data, "");
         curFileInfo.parentInfo = null;
+        rootFileInfo = curFileInfo;
     }
 
-    private FileDetailInfo GetFileDetailInfo(JsonData detail)
+    public void SetFileState(string name, bool state)
+    {
+        SetFileStateInner(rootFileInfo, name, state);
+    }
+
+    private void SetFileStateInner(FileDetailInfo info, string name, bool state)
+    {
+        for (int i = 0; i < info.childDetailInfoList.Count; i++)
+        {
+            if (info.childDetailInfoList[i].type == FileDetailType.DIR)
+            {
+                SetFileStateInner(info.childDetailInfoList[i], name, state);
+            }
+            else if (info.childDetailInfoList[i].name == name && info.childDetailInfoList[i].showSelf != state)
+            {
+                info.childDetailInfoList[i].showSelf = state;
+            }
+        }
+    }
+
+    private FileDetailInfo GetFileDetailInfo(JsonData detail, string path)
     {
         FileDetailInfo info = new FileDetailInfo();
         info.type = (FileDetailType)(int)detail["type"];
         info.name = (string)detail["name"];
+        info.path = path + "/" + info.name;
         if (info.type == FileDetailType.DIR)
         {
             JsonData child = detail["child"];
             for(int i = 0; i < child.Count; i++)
             {
-                var childInfo = GetFileDetailInfo(child[i]);
+                var childInfo = GetFileDetailInfo(child[i], info.path);
                 childInfo.parentInfo = info;
                 info.childDetailInfoList.Add(childInfo); ;
             }

@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class ShowMsgUI : MonoBehaviour
 {
-    public Button confirmBtn;
+    public Button closeBtn;
     public Text showText;
 
     private void Start()
     {
-        confirmBtn.onClick.AddListener(() =>
+        closeBtn.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);
         });

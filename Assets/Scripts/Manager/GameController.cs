@@ -26,7 +26,6 @@ public class GameController : MonoBehaviour
 {
     public static GameController manager = null;
     public UserInfo userInfo = new UserInfo();
-
     public ErrorUI errorUI;
     
     
