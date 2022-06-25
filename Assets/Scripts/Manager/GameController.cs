@@ -26,7 +26,13 @@ public class GameController : MonoBehaviour
 {
     public static GameController manager = null;
     public UserInfo userInfo = new UserInfo();
+
+    public ErrorUI errorUI;
+    
+    
     private Dictionary<string, IManager> managerDict = new Dictionary<string, IManager>();
+
+
 
     private void Awake()
     {

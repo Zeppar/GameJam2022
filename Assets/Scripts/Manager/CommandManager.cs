@@ -57,9 +57,6 @@ public class CommandManager : IManager
                 }
             } else
             {
-                Debug.LogError("!!!!!!!!!!!!!!!!!!");
-                Debug.LogError(GameController.manager.GetManager<FileManager>().curFileInfo.name);
-                Debug.LogError(GameController.manager.GetManager<FileManager>().curFileInfo.parentInfo.name);
                 // 进入上层文件夹
                 if (GameController.manager.GetManager<FileManager>().curFileInfo != null 
                     && GameController.manager.GetManager<FileManager>().curFileInfo.parentInfo != null)

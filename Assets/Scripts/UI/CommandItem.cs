@@ -22,7 +22,13 @@ public class CommandItem : MonoBehaviour
                 GameUI.instance.showMsgUI.Show(info.showText);
             } else if(info.type == FileDetailType.EXE)
             {
-
+                if (info.exeErrorText.Length == 0)
+                {
+                    GameUI.instance.ShowGame(info.exeGameId);
+                } else
+                {
+                    GameController.manager.errorUI.Show(info.exeErrorText);
+                }
             } else if(info.type == FileDetailType.HTML)
             {
                 Application.OpenURL(info.webUrl);

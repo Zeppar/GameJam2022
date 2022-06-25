@@ -19,5 +19,10 @@ public class GameUI : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void ShowGame(string name)
+    {
+
+    }
     
 }

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShowMsgUI : MonoBehaviour
+public class ErrorUI : MonoBehaviour
 {
-    public Button confirmBtn;
     public Text showText;
+    public Button confirmBtn;
 
     private void Start()
     {
@@ -20,6 +20,5 @@ public class ShowMsgUI : MonoBehaviour
     {
         gameObject.SetActive(true);
         showText.text = text;
-
     }
 }
