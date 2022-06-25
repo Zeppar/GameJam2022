@@ -1,0 +1,86 @@
+{
+    "type": 0,
+    "name": "root",
+    "child": [
+        {
+            "type": 1,
+            "name": "讲个笑话.txt",
+            "showText": "听说以前有个程序员使用 cd 命令进入了最高文件夹，用了一个叫reset的命令重置了系统时间，结果被开除了（PS: 1.cd xxx 可以进入xxx文件夹 2.cd .. 可以退出当前文件夹）"
+        },
+        {
+            "type": 0,
+            "name": "bin",
+            "child": [
+                {
+                    "type": 3,
+                    "name": "一个隐秘的角落.html",
+                    "webUrl": "https://www.bilibili.com/video/BV1uT4y1P7CX",
+                    "showSelf": false
+                }
+            ]
+        },
+        {
+            "type": 0,
+            "name": "新建文件夹",
+            "child": [
+                {
+                    "type": 2,
+                    "name": "可爱小人.exe",
+                    "exeGameId": "0",
+                    "exeErrorText": ""
+                },
+                {
+                    "type": 2,
+                    "name": "玩飞机.exe",
+                    "exeGameId": "1",
+                    "exeErrorText": "缺少玩飞机.dll文件，无法启动"
+                },
+                {
+                    "type": 4,
+                    "name": "飞机.dll",
+                    "showSelf": false
+                }
+            ]
+        },
+        {
+            "type": 0,
+            "name": "回收站",
+            "child": [
+                {
+                    "type": 1,
+                    "name": "1.txt",
+                    "showText": "1"
+                },
+                {
+                    "type": 1,
+                    "name": "2.txt",
+                    "showText": "2"
+                },
+                {
+                    "type": 1,
+                    "name": "3.txt",
+                    "showText": "3"
+                },
+                {
+                    "type": 1,
+                    "name": "4.txt",
+                    "showText": "4"
+                },
+                {
+                    "type": 1,
+                    "name": "5.txt",
+                    "showText": "5"
+                },
+                {
+                    "type": 1,
+                    "name": "6.txt",
+                    "showText": "6"
+                },
+                {
+                    "type": 4,
+                    "name": "飞机.dll"
+                }
+            ]
+        }
+    ]
+}
