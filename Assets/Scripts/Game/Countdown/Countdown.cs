@@ -19,6 +19,12 @@ public class Countdown : MonoBehaviour
     void Update()
     {
         remainingTime -= Time.deltaTime;
+        if (remainingTime > 8 && remainingTime < 9
+            && (Mathf.Approximately(transform.rotation.eulerAngles.z, 270)
+            || Mathf.Approximately(transform.rotation.eulerAngles.z, 90)))
+        {
+            Debug.Log("888888");
+        }
         if (remainingTime > 0)
         {
             text.text = ((int)remainingTime).ToString();
@@ -34,5 +40,19 @@ public class Countdown : MonoBehaviour
     {
         Debug.Log("ADD TIME");
         remainingTime += 1;
+    }
+
+    public void Rotate(Vector2 playerPosition)
+    {
+        if (playerPosition.x > transform.position.x)
+        {
+            transform.RotateAround(transform.position, Vector3.forward, 30);
+
+        }
+        else
+        {
+            transform.RotateAround(transform.position, Vector3.forward, -30);
+
+        }
     }
 }
