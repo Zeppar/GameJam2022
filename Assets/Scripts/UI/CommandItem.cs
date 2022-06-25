@@ -22,7 +22,20 @@ public class CommandItem : MonoBehaviour
                 GameUI.instance.showMsgUI.Show(info.showText);
             } else if(info.type == FileDetailType.EXE)
             {
-                if (info.exeErrorText.Length == 0)
+                bool findDll = false;
+                if(info.parentInfo != null)
+                {
+                    string name = info.name.Split('.')[0];
+                    for(int i = 0; i < info.parentInfo.childDetailInfoList.Count; i++)
+                    {
+                        if (info.parentInfo.childDetailInfoList[i].name == (name + ".dll") && info.parentInfo.childDetailInfoList[i].showSelf)
+                        {
+                            findDll = true;
+                            break;
+                        }
+                    }
+                }
+                if (findDll)
                 {
                     GameUI.instance.ShowGame(info.exeGameId);
                 } else
@@ -32,6 +45,18 @@ public class CommandItem : MonoBehaviour
             } else if(info.type == FileDetailType.HTML)
             {
                 Application.OpenURL(info.webUrl);
+            } else if(info.type == FileDetailType.DLL)
+            {
+                if(info.path.Contains("回收站"))
+                {
+                    // 放回原文件夹
+                    gameObject.SetActive(false);
+                    GameController.manager.GetManager<FileManager>().SetFileState(info.name, true);
+                    info.showSelf = false;
+                } else
+                {
+                    // do nothing
+                }
             }
         });
     }

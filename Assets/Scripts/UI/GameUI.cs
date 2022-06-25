@@ -22,7 +22,7 @@ public class GameUI : MonoBehaviour
 
     public void ShowGame(string name)
     {
-
+        Debug.LogError("启动游戏 : " + name);
     }
     
 }

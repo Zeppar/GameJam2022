@@ -91,6 +91,7 @@ public class CommandManager : IManager
                     } else
                     {
                         // 显示所有文件
+                        GameUI.instance.commandUI.AddTipCommand("当前路径 : " + GameController.manager.GetManager<FileManager>().curFileInfo.path);
                         GameUI.instance.commandUI.AddTipCommand("文件列表如下");
                         for (int i = 0; i < GameController.manager.GetManager<FileManager>().curFileInfo.childDetailInfoList.Count; i++)
                         {

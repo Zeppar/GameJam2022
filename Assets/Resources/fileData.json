@@ -37,7 +37,7 @@
                 },
                 {
                     "type": 4,
-                    "name": "飞机.dll",
+                    "name": "玩飞机.dll",
                     "showSelf": false
                 }
             ]
@@ -78,7 +78,7 @@
                 },
                 {
                     "type": 4,
-                    "name": "飞机.dll"
+                    "name": "玩飞机.dll"
                 }
             ]
         }
