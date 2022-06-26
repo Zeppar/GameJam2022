@@ -99,6 +99,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   personMode: 1
+  addTimeClip: {fileID: 0}
   isOnGround: 0
 --- !u!61 &3655299024301355284
 BoxCollider2D:
@@ -797,6 +798,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   personMode: 0
+  addTimeClip: {fileID: 8300000, guid: 05f717d793b3640c68aec64cf6b195c8, type: 3}
   isOnGround: 0
 --- !u!61 &8315393550289581707
 BoxCollider2D:
