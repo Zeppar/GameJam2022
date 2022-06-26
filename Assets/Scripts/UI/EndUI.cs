@@ -13,7 +13,9 @@ public class EndUI : MonoBehaviour
     {
         exitBtn.onClick.AddListener(() =>
         {
+            #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
+            #endif
             Application.Quit();
         });
     }

@@ -15,6 +15,7 @@ Assets/AssetStoreTools*
 ExportedObj/
 .consulo/
 Logs/
+Bin/
 *.csproj
 *.unityproj
 *.sln

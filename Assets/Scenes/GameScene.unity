@@ -5016,6 +5016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1466878107}
+  addTimeMovement: 50
 --- !u!60 &1695565397
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5655,6 +5656,7 @@ MonoBehaviour:
   commandInput: {fileID: 270014447}
   scrollRect: {fileID: 1919284774}
   pathText: {fileID: 0}
+  commandItems: []
 --- !u!1 &2129472358
 GameObject:
   m_ObjectHideFlags: 0

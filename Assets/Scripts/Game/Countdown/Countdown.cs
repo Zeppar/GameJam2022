@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class Countdown : MonoBehaviour
 {
     public Text text;
-
+    public float addTimeMovement = 10;
+    private int addTimeCount;
 
     private void Start()
     {
@@ -22,7 +23,7 @@ public class Countdown : MonoBehaviour
                 && (Mathf.Approximately(Mathf.Abs(transform.rotation.eulerAngles.z), 270)
                 || Mathf.Approximately(Mathf.Abs(transform.rotation.eulerAngles.z), 90)))
             {
-                // ÓÎÏ·½áÊø
+                // ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½
                 GameController.manager.MeetEnding(EndingType.PERSON2);
 
             }
@@ -30,7 +31,7 @@ public class Countdown : MonoBehaviour
         {
             if (GameController.manager.remainingTime >= 26)
             {
-                // ÓÎÏ·½áÊø
+                // ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½
                 GameController.manager.maxRemainTime = 30;
                 GameController.manager.MeetEnding(EndingType.PERSON1);
             }
@@ -51,7 +52,16 @@ public class Countdown : MonoBehaviour
     public void AddTime()
     {
         Debug.Log("ADD TIME");
+        addTimeCount++;
         GameController.manager.remainingTime += 1.8f;
+        if (addTimeCount % 2 == 0)
+        {
+            transform.position = new Vector3(transform.position.x + addTimeMovement, transform.position.y);
+        }
+        else
+        {
+            transform.position = new Vector3(transform.position.x - addTimeMovement, transform.position.y);
+        }
     }
 
     public void Rotate(Vector2 playerPosition)
