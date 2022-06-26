@@ -5,11 +5,11 @@
         {
             "type": 1,
             "name": "讲个笑话.txt",
-            "showText": "听说以前有个程序员使用 cd 命令进入了最高文件夹，用了一个叫reset的命令重置了系统时间，结果被开除了（PS: 1.cd xxx 可以进入xxx文件夹 2.cd .. 可以退出当前文件夹）"
+            "showText": "听说以前有个程序员使用 cd 命令进入了最高文件夹，用了一个叫reset的命令重置了系统时间，结果被开除了 \n\nPS: 1.cd xxx 可以进入xxx文件夹 2.cd .. 可以退出当前文件夹"
         },
         {
             "type": 0,
-            "name": "bin",
+            "name": "doc",
             "child": [
                 {
                     "type": 3,
@@ -18,16 +18,22 @@
                     "showSelf": false
                 },
                 {
+                    "type": 3,
+                    "name": "游戏攻略.html",
+                    "webUrl": "http://jam.fxstudio.ltd/trickos/guide.html",
+                    "showSelf": true
+                },
+                {
                     "type": 1,
                     "name": "passport.txt",
-                    "showText": "想要拥有国王一样的权限么，输入babaisme试试吧，我的朋友！",
+                    "showText": "感谢您选择TrickOS系统，我们已经收到您的购买，这是您的购买凭据:\n\n购买项目： TrickOS 3永久版\n购买时间：2022-06-26\n订单号:31415926\n\n请尝试在控制台输入babaisme指令激活您的TrickOS",
                     "showSelf": false
                 }
             ]
         },
         {
             "type": 0,
-            "name": "新建文件夹",
+            "name": "123",
             "child": [
                 {
                     "type": 2,
@@ -51,7 +57,7 @@
         },
         {
             "type": 0,
-            "name": "回收站",
+            "name": "trash",
             "child": [
                 {
                     "type": 1,
@@ -67,6 +73,11 @@
                     "type": 1,
                     "name": "机密.txt",
                     "showText": "这台机器上有个奇怪的倒计时，据说只要让他的数值大于开发日期，就可以杀死倒计时程序"
+                },
+                {
+                    "type": 1,
+                    "name": "有趣的事.txt",
+                    "showText": "老师问小明，1~10里面哪个数字最大，小明竟然说是8，因为8倒过来竟然是正无穷！"
                 },
                 {
                     "type": 4,

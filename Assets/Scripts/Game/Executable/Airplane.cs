@@ -56,7 +56,7 @@ public class Airplane : Executable
         // 6 = Ground
         if (collision.gameObject.layer == 6)
         {
-            Exit();
+            GameController.manager.failUI.Show();
         }
         else if (collision.gameObject.name == "End")
         {

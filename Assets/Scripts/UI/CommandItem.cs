@@ -47,10 +47,13 @@ public class CommandItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             } else if(info.type == FileDetailType.HTML)
             {
                 Application.OpenURL(info.webUrl);
-                GameController.manager.MeetEnding(EndingType.URL);
+                if (info.name.Equals("一个隐秘的角落.html"))
+                {
+                    GameController.manager.MeetEnding(EndingType.URL);
+                }
             } else if(info.type == FileDetailType.DLL)
             {
-                if(info.path.Contains("回收站"))
+                if(info.path.Contains("trash"))
                 {
                     // 放回原文件夹
                     gameObject.SetActive(false);

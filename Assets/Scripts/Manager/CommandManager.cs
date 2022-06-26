@@ -120,7 +120,11 @@ public class CommandManager : IManager
                 case "babaisme":
                     // 获得最高级权限
                     GameController.manager.userInfo.isTopUser = true;
-                    GameUI.instance.commandUI.AddTipCommand("亲爱的国王，欢迎回来！");
+                    GameUI.instance.commandUI.AddTipCommand("你已激活TrcikOS, 并获得管理员权限。");
+                    GameUI.instance.commandUI.AddTipCommand("你的权限被调整：查看隐藏目录由 不允许 调整为 允许");
+                    GameUI.instance.commandUI.AddTipCommand("你的权限被调整：运行管理员指令由 不允许 调整为 允许");
+                    GameUI.instance.activeOSText.gameObject.SetActive(false);
+
                     break;
                 default:
                     break;

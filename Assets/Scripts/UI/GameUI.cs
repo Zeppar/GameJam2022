@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class GameUI : MonoBehaviour
     public CommandUI commandUI;
     public Transform gameParent;
     public Countdown countDown;
+    public Text activeOSText;
 
     private void Awake()
     {
@@ -36,5 +38,13 @@ public class GameUI : MonoBehaviour
             Destroy(gameParent.GetChild(i).gameObject);
         }
         countDown.gameObject.SetActive(true);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            commandUI.gameObject.SetActive(!commandUI.gameObject.activeSelf);
+        }
     }
 }

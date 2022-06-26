@@ -54,6 +54,16 @@ public class CommandUI : MonoBehaviour
     private void Start()
     {
         commandInput.ActivateInputField();
+        AddTipCommand("欢迎使用JamShell 1.0.0 LTS (TrickOS 3.2.2 x86)");
+        AddTipCommand("");
+        AddTipCommand("系统状态： 已加载");
+        AddTipCommand("激活状态： 未激活（您的计算机可能运行的是TrickOS的盗版副本）");
+        AddTipCommand("当前版本： 3.2.2");
+        AddTipCommand("你的TrickOS已经成功启动");
+        AddTipCommand("");
+        AddTipCommand("输入help已获取更多帮助");
+
+
     }
     private void Update()
     {

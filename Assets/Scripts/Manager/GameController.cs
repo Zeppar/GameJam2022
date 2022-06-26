@@ -33,8 +33,8 @@ public class GameController : MonoBehaviour
     public ErrorUI errorUI;
     public ShowMsgUI showMsgUI;
     public FailUI failUI;
-
-
+    public TipsUI tipsUI;
+    public EndUI endUI;
 
     private Dictionary<string, IManager> managerDict = new Dictionary<string, IManager>();
 
@@ -84,6 +84,8 @@ public class GameController : MonoBehaviour
         {
             userInfo.endingIdList.Add(type);
             remainingTime = maxRemainTime;
+            tipsUI.Show("恭喜你达成了新成就 （" + GameController.manager.userInfo.endingIdList.Count + "/7）");
+
         }
         GameUI.instance.HideGame();
     }
