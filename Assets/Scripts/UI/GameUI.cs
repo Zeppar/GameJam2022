@@ -46,7 +46,7 @@ public class GameUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             commandUI.gameObject.SetActive(!commandUI.gameObject.activeSelf);
-            ESCTip.gameObject.SetActive(!ESCTip.gameObject.activeSelf);
+            ESCTip.gameObject.SetActive(!commandUI.gameObject.activeSelf);
         }
     }
 }
