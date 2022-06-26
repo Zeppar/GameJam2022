@@ -2927,8 +2927,8 @@ MonoBehaviour:
   userInfo:
     isTopUser: 0
     endingIdList: 
-  maxRemainTime: 10
-  remainingTime: 10
+  maxRemainTime: 15
+  remainingTime: 15
   errorUI: {fileID: 518835269}
   showMsgUI: {fileID: 266203355}
   failUI: {fileID: 828755469}
