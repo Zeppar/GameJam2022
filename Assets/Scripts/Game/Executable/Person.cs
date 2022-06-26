@@ -58,19 +58,39 @@ public class Person : Executable
 
     public void Move()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (GameController.manager.userInfo.endingIdList.Contains(EndingType.PERSON1))
         {
-            transform.position = new Vector2(transform.position.x - speed * Time.deltaTime,
-                transform.position.y);
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.position = new Vector2(transform.position.x - speed * Time.deltaTime,
+                    transform.position.y);
+            }
+            else if (Input.GetKey(KeyCode.A))
+            {
+                transform.position = new Vector2(transform.position.x + speed * Time.deltaTime,
+                    transform.position.y);
+            }
+            if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
+            {
+                rigidbody2d.velocity = new Vector2(0, jumpFoucus);
+            }
         }
-        else if (Input.GetKey(KeyCode.D))
+        else
         {
-            transform.position = new Vector2(transform.position.x + speed * Time.deltaTime,
-                transform.position.y);
-        }
-        if (Input.GetMouseButtonDown(0) && isOnGround)
-        {
-            rigidbody2d.velocity = new Vector2(0, jumpFoucus);
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.position = new Vector2(transform.position.x - speed * Time.deltaTime,
+                    transform.position.y);
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                transform.position = new Vector2(transform.position.x + speed * Time.deltaTime,
+                    transform.position.y);
+            }
+            if (Input.GetMouseButtonDown(0) && isOnGround)
+            {
+                rigidbody2d.velocity = new Vector2(0, jumpFoucus);
+            }
         }
 
     }

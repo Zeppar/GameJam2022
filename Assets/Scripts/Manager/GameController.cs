@@ -12,12 +12,12 @@ public class UserInfo
 
 public enum EndingType
 {
-    HUMAN1 = 0,
-    HUMAN2,
-    AIRCRAFT,
+    PERSON1 = 0,
+    PERSON2,
+    AIRPLANE,
     KILL,
-    URL
-
+    URL,
+    TRASH
 }
 
 
@@ -25,10 +25,17 @@ public delegate void NoneParamCallback();
 public class GameController : MonoBehaviour
 {
     public static GameController manager = null;
+
     public UserInfo userInfo = new UserInfo();
+    public float maxRemainTime;
+    public float remainingTime;
+
     public ErrorUI errorUI;
-    
-    
+    public ShowMsgUI showMsgUI;
+    public FailUI failUI;
+
+
+
     private Dictionary<string, IManager> managerDict = new Dictionary<string, IManager>();
 
 
@@ -71,4 +78,13 @@ public class GameController : MonoBehaviour
         return default(T);
     }
 
+    public void MeetEnding(EndingType type)
+    {
+        if(!userInfo.endingIdList.Contains(type))
+        {
+            userInfo.endingIdList.Add(type);
+            remainingTime = maxRemainTime;
+        }
+        GameUI.instance.HideGame();
+    }
 }

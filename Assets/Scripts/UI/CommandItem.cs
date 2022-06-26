@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class CommandItem : MonoBehaviour
+public class CommandItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public Text showText;
     public Button selfBtn;
     private FileDetailInfo info;
+    private Color originColor;
 
     private void Start()
     {
@@ -19,7 +21,7 @@ public class CommandItem : MonoBehaviour
             }
             if(info.type == FileDetailType.TXT)
             {
-                GameUI.instance.showMsgUI.Show(info.showText);
+                GameController.manager.showMsgUI.Show(info.showText);
             } else if(info.type == FileDetailType.EXE)
             {
                 bool findDll = false;
@@ -92,5 +94,22 @@ public class CommandItem : MonoBehaviour
         this.info = info;
         showText.text = info.name;
         showText.color = Color.white;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if(info != null && (info.type == FileDetailType.EXE || info.type == FileDetailType.HTML || info.type == FileDetailType.TXT))
+        {
+            originColor = showText.color;
+            showText.color = Color.cyan;
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (info != null && (info.type == FileDetailType.EXE || info.type == FileDetailType.HTML || info.type == FileDetailType.TXT))
+        {
+            showText.color = originColor;
+        }
     }
 }

@@ -110,7 +110,7 @@ public class CommandManager : IManager
                     // 根据权限判定是否可以成功
                     if(GameController.manager.userInfo.isTopUser)
                     {
-                        GameController.manager.userInfo.endingIdList.Add(EndingType.KILL);
+                        GameController.manager.MeetEnding(EndingType.KILL);
                     } else
                     {
                         GameUI.instance.commandUI.AddErrorCommand("权限不足，无法杀死程序");
