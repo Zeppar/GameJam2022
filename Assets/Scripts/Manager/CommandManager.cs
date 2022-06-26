@@ -1,10 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CommandManager : IManager
 {
     public List<string> commandList = new List<string> { "help", "ls", "cd", "kill", "babaisme" };
+    public List<string> commandHistroy = new List<string>();
+    public int commandHistoryPoint = 0;
+
     public bool IsCommandAvailable(string command)
     {
         string trimCommand = command.Trim();
@@ -33,6 +37,9 @@ public class CommandManager : IManager
 
     public void UseCommond(string command)
     {
+        commandHistroy.Add(command);
+        commandHistoryPoint = commandHistroy.Count;
+
         string trimCommand = command.Trim();
         if (!IsCommandAvailable(trimCommand))
         {
@@ -49,7 +56,6 @@ public class CommandManager : IManager
                 if (info != null && info.type == FileDetailType.DIR)
                 {
                     GameController.manager.GetManager<FileManager>().curFileInfo = info;
-                    GameUI.instance.commandUI.AddTipCommand("进入路径 : " + path);
                 }
                 else
                 {
@@ -91,8 +97,6 @@ public class CommandManager : IManager
                     } else
                     {
                         // 显示所有文件
-                        GameUI.instance.commandUI.AddTipCommand("当前路径 : " + GameController.manager.GetManager<FileManager>().curFileInfo.path);
-                        GameUI.instance.commandUI.AddTipCommand("文件列表如下");
                         for (int i = 0; i < GameController.manager.GetManager<FileManager>().curFileInfo.childDetailInfoList.Count; i++)
                         {
                             if (GameController.manager.GetManager<FileManager>().curFileInfo.childDetailInfoList[i].showSelf)
@@ -119,5 +123,44 @@ public class CommandManager : IManager
                     break;
             }
         }
+    }
+
+    public string GetHistory(int moveCount)
+    {
+        if (commandHistoryPoint + moveCount >= commandHistroy.Count || commandHistoryPoint + moveCount < 0)
+        {
+            Debug.Log("Can not get history");
+            return null;
+        }
+        commandHistoryPoint += moveCount;
+        return commandHistroy[commandHistoryPoint];
+
+    }
+
+    public string AutoCompletion(string command)
+    {
+        if (command.StartsWith("cd "))
+        {
+            string path = command.Replace("cd ", "");
+            var childDetailInfoList = GameController.manager.GetManager<FileManager>().curFileInfo.childDetailInfoList;
+            for (int i = 0; i < childDetailInfoList.Count; i++)
+            {
+                if (childDetailInfoList[i].showSelf && childDetailInfoList[i].name.StartsWith(path))
+                {
+                    return "cd " + childDetailInfoList[i].name;
+                }
+            }
+        }
+        else
+        {
+            for (int i =0; i < commandList.Count; i++)
+            {
+                if (commandList[i].StartsWith(command))
+                {
+                    return commandList[i];
+                }
+            }
+        }
+        return command;
     }
 }

@@ -9,6 +9,7 @@ public class CommandUI : MonoBehaviour
     public Transform content;
     public InputField commandInput;
     public ScrollRect scrollRect;
+    public Text pathText;
 
     public void AddCommand(string text)
     {
@@ -50,6 +51,10 @@ public class CommandUI : MonoBehaviour
         scrollRect.verticalNormalizedPosition = 0;
     }
 
+    private void Start()
+    {
+        commandInput.ActivateInputField();
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
@@ -61,6 +66,31 @@ public class CommandUI : MonoBehaviour
                 commandInput.text = "";
             }
             commandInput.ActivateInputField();
+        }
+        else if(Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            var text = GameController.manager.GetManager<CommandManager>().GetHistory(-1);
+            if (text != null)
+            {
+                commandInput.text = text;
+                commandInput.MoveTextEnd(false);
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            var text = GameController.manager.GetManager<CommandManager>().GetHistory(1);
+            if (text != null)
+            {
+                commandInput.text = text;
+                commandInput.MoveTextEnd(false);
+
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            var command = commandInput.text.Trim();
+            commandInput.text = GameController.manager.GetManager<CommandManager>().AutoCompletion(command);
+            commandInput.MoveTextEnd(false);
         }
     }
 }

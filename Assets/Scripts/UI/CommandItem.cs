@@ -63,7 +63,7 @@ public class CommandItem : MonoBehaviour
 
     public void SetContent(string text)
     {
-        showText.text = text;
+        showText.text = GameController.manager.GetManager<FileManager>().curFileInfo.path +"$ "+ text;
         if(GameController.manager.GetManager<CommandManager>().IsCommandAvailable(text))
         {
             showText.color = Color.green;
@@ -91,6 +91,6 @@ public class CommandItem : MonoBehaviour
     {
         this.info = info;
         showText.text = info.name;
-        showText.color = Color.yellow;
+        showText.color = Color.white;
     }
 }

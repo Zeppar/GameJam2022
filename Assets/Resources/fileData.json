@@ -55,8 +55,8 @@
             "child": [
                 {
                     "type": 1,
-                    "name": "1.txt",
-                    "showText": "1"
+                    "name": "关于.txt",
+                    "showText": "<a href=www.baidu.com>Baidu网址</a>"
                 },
                 {
                     "type": 1,
