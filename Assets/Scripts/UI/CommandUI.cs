@@ -59,7 +59,7 @@ public class CommandUI : MonoBehaviour
         AddTipCommand("当前版本： 3.2.2");
         AddTipCommand("你的TrickOS已经成功启动");
         AddTipCommand("");
-        AddTipCommand("输入help已获取更多帮助");
+        AddTipCommand("输入help以获取更多帮助");
     }
 
 
@@ -74,8 +74,6 @@ public class CommandUI : MonoBehaviour
 
     public void Restart()
     {
-        Clear();
-        ShowStartInfo();
         commandInput.text = "";
         gameObject.SetActive(false);
     }

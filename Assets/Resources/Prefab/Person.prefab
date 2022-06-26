@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 5366926073838827332}
   - component: {fileID: 5366926073838827338}
   - component: {fileID: 5366926073838827333}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Text
   m_TagString: Countdown
   m_Icon: {fileID: 0}
@@ -1470,7 +1470,7 @@ GameObject:
   - component: {fileID: 8315393552013395427}
   - component: {fileID: 8315393552013395436}
   - component: {fileID: 8315393552013395437}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Countdown
   m_TagString: Countdown
   m_Icon: {fileID: 0}
@@ -1612,4 +1612,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 5366926073838827333}
-  remainingTime: 10
+  addTimeMovement: 10

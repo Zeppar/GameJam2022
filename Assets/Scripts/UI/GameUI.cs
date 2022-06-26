@@ -10,6 +10,7 @@ public class GameUI : MonoBehaviour
     public Transform gameParent;
     public Countdown countDown;
     public Text activeOSText;
+    public Image ESCTip;
 
     private void Awake()
     {
@@ -45,6 +46,7 @@ public class GameUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             commandUI.gameObject.SetActive(!commandUI.gameObject.activeSelf);
+            ESCTip.gameObject.SetActive(!ESCTip.gameObject.activeSelf);
         }
     }
 }

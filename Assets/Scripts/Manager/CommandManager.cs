@@ -124,6 +124,7 @@ public class CommandManager : IManager
                     GameUI.instance.commandUI.AddTipCommand("你的权限被调整：查看隐藏目录由 不允许 调整为 允许");
                     GameUI.instance.commandUI.AddTipCommand("你的权限被调整：运行管理员指令由 不允许 调整为 允许");
                     GameUI.instance.activeOSText.gameObject.SetActive(false);
+                    GameController.manager.tipsUI.Show("你的TrickOS已经激活");
 
                     break;
                 case "clear":
