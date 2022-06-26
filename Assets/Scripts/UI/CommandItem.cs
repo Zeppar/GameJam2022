@@ -47,6 +47,7 @@ public class CommandItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             } else if(info.type == FileDetailType.HTML)
             {
                 Application.OpenURL(info.webUrl);
+                GameController.manager.MeetEnding(EndingType.URL);
             } else if(info.type == FileDetailType.DLL)
             {
                 if(info.path.Contains("回收站"))

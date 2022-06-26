@@ -86,7 +86,7 @@ public class CommandManager : IManager
                     int count = 0;
                     for (int i = 0; i < GameController.manager.GetManager<FileManager>().curFileInfo.childDetailInfoList.Count; i++)
                     {
-                        if (GameController.manager.GetManager<FileManager>().curFileInfo.childDetailInfoList[i].showSelf)
+                        if (GameController.manager.GetManager<FileManager>().curFileInfo.childDetailInfoList[i].showSelf || GameController.manager.userInfo.isTopUser)
                         {
                             count += 1;
                         }
@@ -99,7 +99,7 @@ public class CommandManager : IManager
                         // 显示所有文件
                         for (int i = 0; i < GameController.manager.GetManager<FileManager>().curFileInfo.childDetailInfoList.Count; i++)
                         {
-                            if (GameController.manager.GetManager<FileManager>().curFileInfo.childDetailInfoList[i].showSelf)
+                            if (GameController.manager.GetManager<FileManager>().curFileInfo.childDetailInfoList[i].showSelf || GameController.manager.userInfo.isTopUser)
                             {
                                 GameUI.instance.commandUI.AddFileCommand(GameController.manager.GetManager<FileManager>().curFileInfo.childDetailInfoList[i]);
                             }
@@ -110,6 +110,7 @@ public class CommandManager : IManager
                     // 根据权限判定是否可以成功
                     if(GameController.manager.userInfo.isTopUser)
                     {
+                        GameUI.instance.commandUI.AddTipCommand("倒计时程序自动销毁！");
                         GameController.manager.MeetEnding(EndingType.KILL);
                     } else
                     {
