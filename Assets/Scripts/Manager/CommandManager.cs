@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CommandManager : IManager
 {
-    public List<string> commandList = new List<string> { "help", "ls", "cd", "kill", "babaisme" };
+    public List<string> commandList = new List<string> { "help", "ls", "cd", "kill", "babaisme", "clear" };
     public List<string> commandHistroy = new List<string>();
     public int commandHistoryPoint = 0;
 
@@ -125,6 +125,9 @@ public class CommandManager : IManager
                     GameUI.instance.commandUI.AddTipCommand("你的权限被调整：运行管理员指令由 不允许 调整为 允许");
                     GameUI.instance.activeOSText.gameObject.SetActive(false);
 
+                    break;
+                case "clear":
+                    GameUI.instance.commandUI.Clear();
                     break;
                 default:
                     break;

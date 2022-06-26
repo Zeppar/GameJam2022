@@ -14,7 +14,9 @@ public class FailUI : MonoBehaviour
         retryBtn.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);
+            GameUI.instance.HideGame();
             GameController.manager.remainingTime = GameController.manager.maxRemainTime;
+            GameUI.instance.commandUI.Restart();
             GameUI.instance.countDown.gameObject.SetActive(true);
         });
 
