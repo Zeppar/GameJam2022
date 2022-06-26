@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Airplane : Executable
 {
-    private float xSpeed = 1;
+    public float xSpeed = 1;
     private float ySpeed = -0.5f;
     public float upSpeed = 0.2f;
     public float downSpeed = 0.05f;
@@ -35,7 +35,7 @@ public class Airplane : Executable
             ySpeed += upSpeed;
         }
 
-        transform.position = new Vector2(transform.position.x + xSpeed, transform.position.y + ySpeed);
+        transform.localPosition = new Vector2(transform.localPosition.x + xSpeed, transform.localPosition.y + ySpeed);
         ySpeed -= downSpeed;
 
     }

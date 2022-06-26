@@ -14,7 +14,9 @@ public class Person : Executable
     public Rigidbody2D rigidbody2d;
     public LayerMask groundLayer;
     public PersonMode personMode;
-    
+
+    public AudioClip addTimeClip;
+
     public bool isOnGround = false;
 
     private void Start()
@@ -102,6 +104,7 @@ public class Person : Executable
             if (personMode == PersonMode.mode1)
             {
                 collision.gameObject.GetComponent<Countdown>().AddTime();
+                //GameController.manager.PlayAudio(addTimeClip);
             }
             else
             {

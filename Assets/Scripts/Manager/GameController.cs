@@ -36,6 +36,8 @@ public class GameController : MonoBehaviour
     public TipsUI tipsUI;
     public EndUI endUI;
 
+    public AudioSource audioSource;
+
     private Dictionary<string, IManager> managerDict = new Dictionary<string, IManager>();
 
 
@@ -102,5 +104,10 @@ public class GameController : MonoBehaviour
             );
         }
         GameUI.instance.HideGame();
+    }
+
+    public void PlayAudio(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }
