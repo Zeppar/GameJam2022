@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CommandManager : IManager
 {
-    public List<string> commandList = new List<string> { "help", "ls", "cd", "kill", "babaisme", "clear" };
+    public List<string> commandList = new List<string> { "help", "ls", "cd", "kill", "babaisme", "clear", "reset" };
     public List<string> commandHistroy = new List<string>();
     public int commandHistoryPoint = 0;
 
@@ -125,10 +125,13 @@ public class CommandManager : IManager
                     GameUI.instance.commandUI.AddTipCommand("你的权限被调整：运行管理员指令由 不允许 调整为 允许");
                     GameUI.instance.activeOSText.gameObject.SetActive(false);
                     GameController.manager.tipsUI.Show("你的TrickOS已经激活");
-
                     break;
                 case "clear":
                     GameUI.instance.commandUI.Clear();
+                    break;
+                case "reset":
+                    // TRICK
+                    GameUI.instance.commandUI.AddTipCommand("系统重置成功，新文件已解锁。");
                     break;
                 default:
                     break;
