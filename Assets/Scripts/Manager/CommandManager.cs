@@ -118,6 +118,8 @@ public class CommandManager : IManager
                     break;
                 case "babaisme":
                     // 获得最高级权限
+                    GameController.manager.userInfo.isTopUser = true;
+                    GameUI.instance.commandUI.AddTipCommand("亲爱的国王，欢迎回来！");
                     break;
                 default:
                     break;
