@@ -96,7 +96,15 @@ public class CommandItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void SetFileContent(FileDetailInfo info)
     {
         this.info = info;
-        showText.text = info.name;
+        if (info.type == FileDetailType.DIR)
+        {
+            showText.text = info.name + "/";
+        }
+        else
+        {
+            showText.text = info.name;
+
+        }
         showText.color = Color.white;
     }
 

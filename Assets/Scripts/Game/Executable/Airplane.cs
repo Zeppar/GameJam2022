@@ -30,7 +30,7 @@ public class Airplane : Executable
     public void Move()
     {
         if (!isRunning) { return; }
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.W))
         {
             ySpeed += upSpeed;
         }

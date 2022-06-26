@@ -89,7 +89,7 @@ public class Person : Executable
                 transform.position = new Vector2(transform.position.x + speed * Time.deltaTime,
                     transform.position.y);
             }
-            if (Input.GetMouseButtonDown(0) && isOnGround)
+            if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.W)) && isOnGround)
             {
                 rigidbody2d.velocity = new Vector2(0, jumpFoucus);
             }
