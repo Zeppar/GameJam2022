@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 7219415356843247274}
   addTimeMovement: 10
+  canMove: 0
 --- !u!1 &7219415355430749105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,8 +1539,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRunning: 0
-  upSpeed: 0.2
-  downSpeed: 0.01
+  xSpeed: 1
+  upSpeed: 0.5
+  downSpeed: 0.002
 --- !u!61 &7219415357338790967
 BoxCollider2D:
   m_ObjectHideFlags: 0

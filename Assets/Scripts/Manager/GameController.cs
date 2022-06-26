@@ -80,6 +80,7 @@ public class GameController : MonoBehaviour
 
     public void MeetEnding(EndingType type)
     {
+        Debug.LogError("11111111111111111111");
         if(!userInfo.endingIdList.Contains(type))
         {
             userInfo.endingIdList.Add(type);
